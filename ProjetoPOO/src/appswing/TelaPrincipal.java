@@ -1,17 +1,8 @@
 package appswing;
-/**********************************
- * IFPB - Curso Superior de Tec. em Sist. para Internet
- * POO
- * Prof. Fausto Maranh�o Ayres
- **********************************/
-
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -19,15 +10,13 @@ import javax.swing.JMenuBar;
 import javax.swing.SwingConstants;
 
 public class TelaPrincipal {
-	private JFrame frame;
-	private JMenu mnParticipante;
-	private JMenu mnEvento;
+	JFrame frame;
+	private JMenu mnCorrentista;
+	private JMenu mnConta;
+	private JMenu mnCaixa;
 	private JLabel label;
 
-
-	/**
-	 * Launch the application.
-	 */
+	// Inicializar a tela
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,17 +30,13 @@ public class TelaPrincipal {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	//Criar a tela
 	public TelaPrincipal() {
 		initialize();
 		frame.setVisible(true);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	//Inicializar os contents da tela
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Banko");
@@ -65,26 +50,38 @@ public class TelaPrincipal {
 		label.setBounds(0, 0, 450, 313);
 		frame.getContentPane().add(label);
 		frame.setResizable(false);
-
+		
+		//Menu do Correntista
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
-		mnParticipante = new JMenu("Participante");
-		mnParticipante.addMouseListener(new MouseAdapter() {
+		mnCorrentista = new JMenu("Correntista");
+		mnCorrentista.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TelaParticipantes tela = new TelaParticipantes();
+				TelaCorrentistas tela = new TelaCorrentistas();
 			}
 		});
-		menuBar.add(mnParticipante);
+		menuBar.add(mnCorrentista);
 
-		mnEvento = new JMenu("Evento");
-		mnEvento.addMouseListener(new MouseAdapter() {
+		//Menu da Conta
+		mnConta = new JMenu("Conta");
+		mnConta.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				TelaEventos tela = new TelaEventos();
+				TelaConta tela = new TelaConta();
 			}
 		});
-		menuBar.add(mnEvento);
+		menuBar.add(mnConta);
+
+		//Menu do Caixa
+		mnCaixa = new JMenu("Caixa");
+        mnCaixa.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                TelaCaixa tela = new TelaCaixa();
+            }
+        });
+        menuBar.add(mnCaixa);
 	}
 
 }

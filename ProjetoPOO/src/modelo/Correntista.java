@@ -63,11 +63,17 @@ public class Correntista {
 		this.cpf = cpf;
 	}
 	
+
 	public boolean isTitular() {
 		return this.titular;
 	}
 	
 	public void setTitular(boolean alteracaoTitular) {
 		this.titular = alteracaoTitular;
+	}
+	
+	@Override
+	public String toString() {
+		return "Correntista [cpf=" + cpf + ", nome=" + nome + ", senha=" + senha + ", titular=" + titular + "]";
 	}
 }
